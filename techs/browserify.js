@@ -4,7 +4,7 @@ var fs = require('fs');
 
 module.exports = inherit(require('enb/lib/tech/base-tech'), {
     getName: function () {
-        return 'borschik';
+        return 'browserify';
     },
 
     configure: function () {
