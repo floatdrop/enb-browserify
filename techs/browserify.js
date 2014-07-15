@@ -19,7 +19,7 @@ module.exports = inherit(require('enb/lib/tech/base-tech'), {
     },
 
     getTargets: function () {
-        return [this.node.unmaskTargetName(this._target)];
+        return [this.node.unmaskTargetName(this._source)];
     },
 
     build: function () {
@@ -28,23 +28,10 @@ module.exports = inherit(require('enb/lib/tech/base-tech'), {
         var source = this.node.unmaskTargetName(this._source);
         var sourcePath = this.node.resolvePath(source);
         var _this = this;
-        var cache = this.node.getNodeCache(target);
-        return this.node.requireSources([source]).then(function () {
-            if (cache.needRebuildFile('source-file', sourcePath) ||
-                cache.needRebuildFile('target-file', targetPath)
-            ) {
-                browserify(sourcePath).bundle().pipe(
-                    fs.createWriteStream(targetPath)
-                ).on('end', function () {
-                    cache.cacheFileInfo('source-file', sourcePath);
-                    cache.cacheFileInfo('target-file', targetPath);
-                    _this.node.resolveTarget(target);
-                });
-            } else {
-                _this.node.isValidTarget(target);
-                _this.node.resolveTarget(target);
-                return null;
-            }
+        browserify(sourcePath).bundle().pipe(
+            fs.createWriteStream(targetPath)
+        ).on('end', function () {
+            _this.node.resolveTarget(target);
         });
     }
 });
