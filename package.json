@@ -1,6 +1,6 @@
 {
   "name": "enb-browserify",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "test": "npm run-script jshint",
     "jshint": "jshint ."
