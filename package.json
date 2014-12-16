@@ -25,6 +25,7 @@
     "browserify": "~4.2.0"
   },
   "dependencies": {
+    "vow": ">=0.3.3",
     "inherit": "~2.2.1"
   }
 }
