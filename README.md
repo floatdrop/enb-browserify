@@ -12,8 +12,8 @@ enb-browserify
 
 ```javascript
 nodeConfig.addTech([ require('enb-browserify/techs/browserify'), {
-source: '?.node.js',
-target: '?.browser.js'
+    source: '?.node.js',
+    target: '?.browser.js'
 } ]);
 ```
 
