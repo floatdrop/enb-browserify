@@ -2,3 +2,4 @@
 .bem
 node_modules
 sources
+npm-debug.log
