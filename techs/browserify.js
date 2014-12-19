@@ -19,7 +19,7 @@
  * ```
  */
 var browserify = require('browserify');
-var Vow = require('vow');
+var vow = require('vow');
 
 module.exports = require('enb/lib/build-flow').create()
     .name('browserify')
@@ -28,14 +28,13 @@ module.exports = require('enb/lib/build-flow').create()
     .defineRequiredOption('source')
     .useSourceFilename('source')
     .builder(function (source) {
-        var promise = Vow.promise();
-        browserify(source).bundle(function(err, data) {
-            if (err) {
-                promise.reject(err);
-            } else {
-                promise.fulfill(data);
-            }
+        return new vow.Promise(function (resolve, reject) {
+            browserify(source).bundle(function(err, data) {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(data);
+            });
         });
-        return promise;
     })
     .createTech();

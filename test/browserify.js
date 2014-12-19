@@ -25,8 +25,9 @@ describe('Techs', function () {
 			var bundle = new TestNode('bundle');
 			return bundle.runTechAndGetContent(BrowserifyTech, {source: '?.node.js', target: '?.browser.js'})
 				.then(function (result) {
-					result.toString().match('var a = \'a test\'; module.exports= a').should.to.be.not.an('array');
-					result.toString().match('var b = \'b test\'; module.exports= b').should.to.be.an('array');
+					var code = result[0].toString();
+					code.indexOf('var a = \'a test\'; module.exports= a').should.not.be.eql(-1);
+					code.indexOf('var b = \'b test\'; module.exports= b').should.not.be.eql(-1);
 				})
 				.then(done, done);
 		});
