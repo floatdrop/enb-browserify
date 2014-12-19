@@ -1,4 +1,4 @@
-enb-browserify [![Build Status](https://travis-ci.org/floatdrop/enb-browserify.svg)](https://travis-ci.org/floatdrop/enb-browserify)
+enb-browserify [![Build Status](https://travis-ci.org/floatdrop/enb-browserify.svg?branch=master)](https://travis-ci.org/floatdrop/enb-browserify)
 =========
 
 Раскрывает require, используя browserify.
