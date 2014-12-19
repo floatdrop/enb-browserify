@@ -1,4 +1,4 @@
-enb-browserify
+enb-browserify [![Build Status](https://travis-ci.org/floatdrop/enb-browserify.svg)](https://travis-ci.org/floatdrop/enb-browserify)
 =========
 
 Раскрывает require, используя browserify.
@@ -16,4 +16,3 @@ nodeConfig.addTech([ require('enb-browserify/techs/browserify'), {
     target: '?.browser.js'
 } ]);
 ```
-
