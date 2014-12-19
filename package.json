@@ -32,28 +32,5 @@
   "dependencies": {
     "inherit": "~2.2.1",
     "vow": "^0.4.7"
-  },
-  "gitHead": "d3ac804ddce1309874bb93087d1b000b5e37428b",
-  "description": "enb-browserify ==========",
-  "_id": "enb-browserify@0.0.1",
-  "_shasum": "24aea8588da339473484cd7dde9d5e1ec473bd70",
-  "_from": "enb-browserify@",
-  "_npmVersion": "1.4.16",
-  "_npmUser": {
-    "name": "floatdrop",
-    "email": "floatdrop@gmail.com"
-  },
-  "maintainers": [
-    {
-      "name": "floatdrop",
-      "email": "floatdrop@gmail.com"
-    }
-  ],
-  "dist": {
-    "shasum": "24aea8588da339473484cd7dde9d5e1ec473bd70",
-    "tarball": "http://registry.npmjs.org/enb-browserify/-/enb-browserify-0.0.1.tgz"
-  },
-  "directories": {},
-  "_resolved": "https://registry.npmjs.org/enb-browserify/-/enb-browserify-0.0.1.tgz",
-  "readme": "ERROR: No README data found!"
+  }
 }
