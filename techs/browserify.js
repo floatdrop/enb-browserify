@@ -8,13 +8,20 @@
  *
  * * *String* **source** — Исходный таргет. Обязательная опция.
  * * *String* **target** — Результирующий таргет. По умолчанию — `?.browser.js`.
+ * * *Object* **opts** — Опции для browserify
+ * * *Array* **plugins** — Плагины для browserify
  *
  * **Пример**
  *
  * ```javascript
  * nodeConfig.addTech([ require('enb-browserify/techs/browserify'), {
  * source: '?.node.js',
- * target: '?.browser.js'
+ * target: '?.browser.js',
+ * opts: {
+ *     detectGlobals: false,
+ *     debug: true
+ * },
+ * plugins: [require('bundle-collapser/plugin')]
  * } ]);
  * ```
  */
@@ -27,9 +34,15 @@ module.exports = require('enb/lib/build-flow').create()
     .defineRequiredOption('target')
     .defineRequiredOption('source')
     .useSourceFilename('source')
+    .defineOption('opts', {})
+    .defineOption('plugins', [])
     .builder(function (source) {
+        var b = browserify(this._opts);
+        this._plugins.forEach(function(plugin) {
+            b.plugin(plugin);
+        });
         return new vow.Promise(function (resolve, reject) {
-            browserify(source).bundle(function(err, data) {
+            b.add(source).bundle(function(err, data) {
                 if (err) {
                     return reject(err);
                 }
