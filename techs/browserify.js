@@ -10,6 +10,7 @@
  * * *String* **target** — Результирующий таргет. По умолчанию — `?.browser.js`.
  * * *Object* **opts** — Опции для browserify
  * * *Array* **plugins** — Плагины для browserify
+ * * *Array* **transforms** — Трансформации для browserify
  *
  * **Пример**
  *
@@ -22,6 +23,7 @@
  *     debug: true
  * },
  * plugins: [require('bundle-collapser/plugin')]
+ * transforms: [[globalShim, {global: true}]]
  * } ]);
  * ```
  */
@@ -36,11 +38,15 @@ module.exports = require('enb/lib/build-flow').create()
     .useSourceFilename('source')
     .defineOption('opts', {})
     .defineOption('plugins', [])
+	.defineOption('transforms', [])
     .builder(function (source) {
         var b = browserify(this._opts);
         this._plugins.forEach(function(plugin) {
             b.plugin(plugin);
         });
+		this._transforms.forEach(function(transform) {
+			b.transform(transform);
+		});
         return new vow.Promise(function (resolve, reject) {
             b.add(source).bundle(function(err, data) {
                 if (err) {
