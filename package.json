@@ -1,6 +1,7 @@
 {
   "name": "enb-browserify",
   "version": "0.2.0",
+  "main": "techs/browserify",
   "scripts": {
     "test": "mocha -R spec"
   },
