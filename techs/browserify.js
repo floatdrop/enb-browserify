@@ -41,12 +41,15 @@ module.exports = require('enb/lib/build-flow').create()
 	.defineOption('transforms', [])
 	.builder(function (source) {
 		var b = browserify(this._opts);
+
 		this._plugins.forEach(function (plugin) {
 			b.plugin(plugin);
 		});
+
 		this._transforms.forEach(function (transform) {
 			b.transform(transform);
 		});
+
 		return new vow.Promise(function (resolve, reject) {
 			b.add(source).bundle(function (err, data) {
 				if (err) {
