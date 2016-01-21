@@ -5,11 +5,9 @@ var BrowserifyTech = require('../techs/browserify');
 var mockFs = require('mock-fs');
 
 describe('Techs', function () {
-
 	afterEach(function () {
 		mockFs.restore();
 	});
-
 
 	describe('Techs', function () {
 		it('Browserify', function (done) {
@@ -17,6 +15,7 @@ describe('Techs', function () {
 				bundle: {
 					'bundle.node.js': 'require(\'../node_modules/module-a\');require(\'../node_modules/module-b\');'
 				},
+				/* eslint-disable camelcase */
 				node_modules: {
 					'module-a.js': 'var a = \'a test\'; module.exports= a',
 					'module-b.js': 'var b = \'b test\'; module.exports= b'

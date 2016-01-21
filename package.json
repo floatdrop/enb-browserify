@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "main": "techs/browserify",
   "scripts": {
-    "test": "mocha -R spec"
+    "test": "xo && mocha -R spec"
   },
   "repository": {
     "type": "git",
@@ -19,14 +19,14 @@
   "homepage": "https://github.com/floatdrop/enb-browserify",
   "peerDependencies": {
     "enb": ">=0.13.0",
-    "enb-bembundle": "^1.0.0"
+    "browserify": "^13.0.0"
   },
   "devDependencies": {
-    "browserify": "~8.1.0",
     "chai": "^1.10.0",
     "enb": "^0.13.11",
     "mocha": "2.0.1",
-    "mock-fs": "2.3.2"
+    "mock-fs": "2.3.2",
+    "xo": "^0.12.1"
   },
   "dependencies": {
     "vow": "^0.4.7"
