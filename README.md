@@ -13,7 +13,7 @@ enb-browserify [![Build Status](https://travis-ci.org/floatdrop/enb-browserify.s
 ### Пример
 
 ```javascript
-nodeConfig.addTech([ require('enb-browserify/techs/browserify'), {
+nodeConfig.addTech([ require('enb-browserify'), {
     source: '?.node.js',
     target: '?.browser.js'
 } ]);
@@ -27,7 +27,7 @@ nodeConfig.addTech([ require('enb-browserify/techs/browserify'), {
 ```javascript
 var globalShim = require('browserify-global-shim');
 
-nodeConfig.addTech([ require('enb-browserify/techs/browserify'), {
+nodeConfig.addTech([ require('enb-browserify'), {
     source: '?.node.js',
     target: '?.browser.js',
     transforms: [[
@@ -38,4 +38,3 @@ nodeConfig.addTech([ require('enb-browserify/techs/browserify'), {
         {global: true}
     ]]
 } ]);
-
