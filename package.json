@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/floatdrop/enb-browserify",
   "peerDependencies": {
-    "enb": "^1.0.0",
+    "enb": "^1.1.2",
     "browserify": "^13.0.0"
   },
   "devDependencies": {
